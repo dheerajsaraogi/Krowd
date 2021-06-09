@@ -63,7 +63,7 @@ class CampaignDetails extends React.Component {
             this.setState({ cDesc: summary[1] })
             this.setState({ minContribution: summary[2].toString() })
             this.setState({ contributedAmount: summary[3].toString() })
-            this.setState({ backersCount: summary[5].toString() })
+            // this.setState({ backersCount: summary[5].toString() })
             this.setState({ creator: summary[6].toString() })
           })
           // Get total requests count
@@ -77,16 +77,18 @@ class CampaignDetails extends React.Component {
                 campaignInstance.getRequests(i).then(ar => {
                   // console.log('All requests: ', ar)
                   totReqArr.push(ar)
-                  // console.log('totReqArr', totReqArr)
+                  console.log('totReqArr', totReqArr)
                   this.setState({ totalRequestArr: totReqArr })
                 })
               }
             }
           })
           // Get all contributers
-          campaignInstance.getContributers().then(eachCont => {
-            console.log("allContributersArr",eachCont)
-            this.setState({ allContributersArr: eachCont })
+          campaignInstance.getContributers().then(eachCount => {
+            console.log("allContributersArr",eachCount)
+            let uniqueAllContributorArr = [...new Set(eachCount)]
+            this.setState({ allContributersArr: uniqueAllContributorArr })
+            this.setState({ backersCount: uniqueAllContributorArr.length })
           })
         })
       } catch (error) {

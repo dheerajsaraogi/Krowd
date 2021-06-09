@@ -26,16 +26,16 @@ class Navbar extends React.Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            {/* <li className="nav-item active">
-              <Link className="nav-link" to="#">
-                Home
+            <li className="nav-item active">
+              <Link className="nav-link" to="/about">
+                About Us
               </Link>
-            </li> */}
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Link
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">
+                Contact Us
               </Link>
-            </li> */}
+            </li>
           </ul>
           <button
             className="btn btn-success my-2 my-sm-0"
