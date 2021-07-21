@@ -3,7 +3,9 @@ import Web3 from 'web3'
 import TruffleContract from 'truffle-contract'
 import 'bootstrap/dist/css/bootstrap.css'
 import ChatWei from '../../../build/contracts/ChatWei.json'
+import '../../css/app.css'
 
+var replyToAddress;
 class Inbox extends React.Component {
   constructor(props) {
     super(props)
@@ -185,6 +187,13 @@ class Inbox extends React.Component {
     });
   }
 
+  unixTime = (unixtime) => {
+
+    var u = new Date(unixtime*1000);
+
+    return ('0' + u.getDate()).slice(-2) + '-' + ('0' + (u.getMonth() + 1)).slice(-2) + '-' + u.getFullYear() + ' ' + ('0' + u.getHours()).slice(-2) + ':' + ('0' + u.getMinutes()).slice(-2) + ':' + ('0' + u.getSeconds()).slice(-2)
+  };
+
   receiveMessages = () => {
     var meta;
     this.ChatWei.deployed().then((instance) => {
@@ -198,7 +207,7 @@ class Inbox extends React.Component {
         var tbody = document.getElementById("mytable-tbody");
         var row = tbody.insertRow();
         var cell1 = row.insertCell();
-        cell1.innerHTML = timestamp[m];
+        cell1.innerHTML = this.unixTime(timestamp[m]);
         var cell2 = row.insertCell();
         cell2.innerHTML = sender[m];
         var cell3 = row.insertCell();
@@ -212,11 +221,13 @@ class Inbox extends React.Component {
       var table = document.getElementById("mytable");
       var rows = table.rows;
       for (var i = 1; i < rows.length; i++) {
-        rows[i].onClick = (function(e) {
+        rows[i].onclick = (function(e) {
           replyToAddress = this.cells[1].innerHTML;
           var thisRowContent = (this.cells[2].innerHTML);
           document.getElementById("reply").innerHTML = thisRowContent;
         });
+        console.log(table);
+        console.log(rows);
       }
       // create inbox clear all button
       var clearInboxButton = document.createElement("button");
@@ -228,7 +239,7 @@ class Inbox extends React.Component {
       clearInboxButton.style.margin = "15px 0px";
       clearInboxButton.innerHTML = "Clear inbox";
       document.getElementById("receivedTable").appendChild(clearInboxButton);
-      clearInboxButton.addEventListener("click", function() {
+      clearInboxButton.addEventListener("click", () => {
         document.getElementById("clearInboxButton").disabled = true;
         this.clearInbox();
       });
@@ -279,7 +290,8 @@ class Inbox extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Campaign Inbox</h1><br />
+        <div className="inbox">
+        <h1>Inbox</h1><br />
         <hr style={{border: '1px solid black', marginTop: '-5px'}} />
         <br />
         <label>Your Ethereum address:</label> <br />
@@ -321,6 +333,7 @@ class Inbox extends React.Component {
         <br />
         <label>Status:</label> <br />
         <span id="status">Inactive</span>
+        </div>
       </React.Fragment>
     )
   }
