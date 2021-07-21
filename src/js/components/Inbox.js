@@ -3,7 +3,6 @@ import Web3 from 'web3'
 import TruffleContract from 'truffle-contract'
 import 'bootstrap/dist/css/bootstrap.css'
 import ChatWei from '../../../build/contracts/ChatWei.json'
-import '../../css/app.css'
 
 var replyToAddress;
 class Inbox extends React.Component {
@@ -288,9 +287,189 @@ class Inbox extends React.Component {
   }
 
   render() {
+    const styles = {
+      "inbox": {
+        "marginLeft": "0%",
+        "marginRight": "0%",
+        "marginTop": "1%",
+        "marginBottom": "1%",
+        "padding": "35px",
+        "border": "2px solid DarkGray",
+        "fontSize": "12px",
+        "fontFamily": "\"Lucida Console\", Monaco, monospace"
+      },
+      "h1": {
+        "display": "inline-block",
+        "verticalAlign": "middle",
+        "marginTop": "0px",
+        "marginBottom": "10px",
+        "fontSize": "22px",
+        "wordBreak": "break-all"
+      },
+      "h2": {
+        "color": "#AAA",
+        "fontSize": "18px",
+        "marginTop": "-10px",
+        "wordBreak": "break-all"
+      },
+      "label": {
+        "display": "inline-block",
+        "width": "200px",
+        "fontSize": "12px",
+        "paddingBottom": "5px"
+      },
+      "a_type_addressLinks": {
+        "padding": "0px",
+        "color": "#666",
+        "fontSize": "12px",
+        "verticalAlign": "top",
+        "resize": "none",
+        "overflow": "hidden",
+        "height": "auto",
+        "width": "75%",
+        "border": "0px solid #000",
+        "outline": "none",
+        "paddingLeft": "0px",
+        "wordBreak": "break-all"
+      },
+      "textarea_type_mySimpleLabel": {
+        "padding": "0px",
+        "color": "#666",
+        "fontSize": "12px",
+        "verticalAlign": "top",
+        "resize": "none",
+        "overflow": "hidden",
+        "height": "auto",
+        "width": "75%",
+        "border": "0px solid #000",
+        "outline": "none",
+        "paddingLeft": "0px",
+        "wordBreak": "break-all"
+      },
+      "select_type_registeredUsersAddressMenu": {
+        "width": "100%",
+        "height": "33px",
+        "display": "block",
+        "borderRadius": "1px",
+        "padding": "0px 0px 0px 0px",
+        "backgroundColor": "White",
+        "border": "1.0px solid #000",
+        "fontSize": "12px",
+        "letterSpacing": "1px",
+        "textAlign": "left",
+        "overflow": "hidden",
+        "outline": "none",
+        "color": "#666"
+      },
+      "button_type_clearInboxButton": {
+        "padding": "0px",
+        "fontSize": "12px",
+        "marginTop": "0px",
+        "borderRadius": "1px",
+        "borderStyle": "solid",
+        "border": "1.0px solid #000",
+        "height": "30px",
+        "lineHeight": "30px",
+        "width": "60px",
+        "textAlign": "center",
+        "backgroundColor": "#EEE",
+        "outline": "none",
+        "cursor": "default",
+        "WebkitTouchCallout": "none",
+        "WebkitUserSelect": "none",
+        "KhtmlUserSelect": "none",
+        "MozUserSelect": "none",
+        "MsUserSelect": "none",
+        "userSelect": "none"
+      },
+      "input_type_myDefaultButton": {
+        "padding": "0px",
+        "fontSize": "12px",
+        "marginTop": "0px",
+        "borderRadius": "1px",
+        "border": "1.0px solid #000",
+        "height": "30px",
+        "lineHeight": "30px",
+        "width": "60px",
+        "textAlign": "center",
+        "backgroundColor": "#EEE",
+        "outline": "none",
+        "cursor": "default",
+        "WebkitTouchCallout": "none",
+        "WebkitUserSelect": "none",
+        "KhtmlUserSelect": "none",
+        "MozUserSelect": "none",
+        "MsUserSelect": "none",
+        "userSelect": "none"
+      },
+      "textarea_type_myInputTextArea": {
+        "border": "1.0px solid #000",
+        "padding": "10px",
+        "fontSize": "12px",
+        "borderRadius": "1px",
+        "verticalAlign": "top",
+        "resize": "none",
+        "userSelect": "none",
+        "outline": "none",
+        "overflow": "hidden",
+        "color": "#666"
+      },
+      "textarea_type_messageTextArea": {
+        "border": "1.0px solid #000",
+        "fontSize": "12px",
+        "borderRadius": "1px",
+        "resize": "none",
+        "outline": "none",
+        "lineHeight": "26px",
+        "overflow": "hidden",
+        "color": "Black",
+        "backgroundColor": "White",
+        "display": "block",
+        "width": "96%",
+        "height": "26px",
+        "paddingLeft": "10px"
+      },
+      "table": {
+        "borderCollapse": "collapse",
+        "maxWidth": "100%",
+        "width": "100%",
+        "border": "1px solid Black"
+      },
+      "th": {
+        "border": "1px solid Black",
+        "fontSize": "10px",
+        "textAlign": "center",
+        "padding": "5px",
+        "wordWrap": "break-word",
+        "wordBreak": "break-all",
+        "userSelect": "none"
+      },
+      "td": {
+        "border": "1px solid Black",
+        "fontSize": "10px",
+        "textAlign": "center",
+        "padding": "5px",
+        "wordWrap": "break-word",
+        "wordBreak": "break-all",
+        "userSelect": "none"
+      },
+      "tr_nth_child_even": {
+        "backgroundColor": "White"
+      },
+      "th_sorted_ascending_after": {
+        "content": "\"  \\2191\""
+      },
+      "th_sorted_descending_after": {
+        "content": "\" \\2193\""
+      },
+      "tr_hover": {
+        "backgroundColor": "#EEE",
+        "color": "#000000"
+      }
+    }
     return (
       <React.Fragment>
-        <div className="inbox">
+        <div style={styles.inbox}>
         <h1>Inbox</h1><br />
         <hr style={{border: '1px solid black', marginTop: '-5px'}} />
         <br />
@@ -304,12 +483,12 @@ class Inbox extends React.Component {
         </div>
         <br />
         <label>Send to:</label> <br />
-        <textarea type="myInputTextArea" id="receiver" spellCheck="false" style={{width: '95%'}} maxLength={42} rows={1} defaultValue={""} />
+        <textarea type="myInputTextArea" id="receiver" spellCheck="false" style={{width: '100%'}} maxLength={42} rows={1} defaultValue={""} />
         <br /><br />
         <br /><label>Message:</label> <br />
         <input type="myDefaultButton" id="sendMessageButton" defaultValue="Send" onClick={() => this.sendMessage()} style={{float: 'right'}} />
         <div style={{overflow: 'hidden', paddingRight: '10px'}}>
-          <textarea type="messageTextArea" id="message" maxLength={30} rows={1} defaultValue={""} />​
+          <textarea type="messageTextArea" id="message" style={{width: '95%'}} maxLength={30} rows={1} defaultValue={""} />​
         </div>
         <div id="receivedTable" style={{display: 'none'}}>
           <br /><label>Received:</label> <br />

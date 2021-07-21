@@ -11,7 +11,7 @@ const footer = () => {
     //   </div>
 
     <div className="container-fluid px-0 ">
-          <div style={{height: 250+"px", overflow: "hidden"}} >
+          <div style={{height: 150+"px", overflow: "hidden"}} >
             <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: 100+"%", width: 100 + "%"}}>
                 <path d="M-4.22,83.38 C166.76,-100.16 314.61,269.89 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style={{stroke: "none", fill: "#25262f"}}></path>
             </svg>
@@ -20,20 +20,18 @@ const footer = () => {
          <div className="footer" style={{backgroundColor: "#25262f"}}>
             
          <div className="row ">
-        <div className="col-12 offset-sm-1 col-sm-5 col-lg-4 center">
-            <h2 className="display-4 footer-heading text-white" style={{width: 50 +"vw"}}>Start Growing with Krowd<br/> by today </h2>
+        <div className="col-md-12 center">
+            <h2 className="display-4 footer-heading text-white center" style={{width: 100 +"vw", textAlign: 'center'}}>Start Growing with Krowd</h2>
         </div>
-        <div className="col-sm-5 col-lg-6 btn-subscribe" style={{textAlign:"center"}}>
-            <button className="btn text-white mt-5">FOLLOW US NOW</button>
+        <div className="col-md-12 center btn-subscribe" style={{textAlign:"center"}}>
+            <button className="btn btn-outline-primary text-white mt-5">FOLLOW US NOW</button>
         </div>
     </div>
-    <hr color="white" width="83%"/>
+    <br />
+      <br />
+    <hr color="white" width="100%"/>
     <div className="row">
-      <div className="offset-lg-1 col-lg-2 mb-5 d-flex justify-content-center">
-        <h2 className="text-white">KROWD</h2>
-      </div>
-    
-      <div className="offset-1 offset-lg-0 col-5 col-lg-2 mb-5 d-flex justify-content-center">
+      <div className="offset-3 col-md-2 d-flex justify-content-center">
           <ul className="list, text-white">
             <li className="mb-3 fontsize12">Media</li>
               <li className="mb-3 fontsize12">Twitter</li>
@@ -42,8 +40,7 @@ const footer = () => {
               <li className="fontsize12">Github</li>
           </ul>
       </div>
-
-      <div className="col-5 col-lg-2 d-flex justify-content-center">
+      <div className="col-md-2 d-flex justify-content-center">
         <ul className="list, text-white">
           <li className="mb-3 fontsize12">About Us</li>
             <li className="mb-3 fontsize12">Terms</li>
@@ -53,7 +50,7 @@ const footer = () => {
         </ul>
     </div>
 
-    <div className="offset-1 offset-lg-0 col-5 col-lg-2 d-flex justify-content-center">
+    <div className="col-md-2 d-flex justify-content-center">
       <ul className="list, text-white">
         <li className="mb-3 fontsize12">Other</li>
           <li className="mb-3 fontsize12">Sitemap</li>

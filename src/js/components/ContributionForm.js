@@ -36,7 +36,7 @@ const ContributionForm = props => {
               type="submit"
               className="btn btn-block btn-success"
             >
-              Contribution
+              Contribute
             </button>
           </div>
         </div>

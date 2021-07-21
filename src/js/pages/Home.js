@@ -135,8 +135,7 @@ class Home extends React.Component {
           </div>
          
         </div>
-        <Inbox />
-
+        
         <Footer/>
         
       </React.Fragment>

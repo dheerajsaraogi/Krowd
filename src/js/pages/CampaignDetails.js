@@ -231,7 +231,7 @@ class CampaignDetails extends React.Component {
             <div className="col-12">
               <div className="card mb-3">
                 <img
-                  src="https://pbs.twimg.com/profile_banners/803884128076578816/1545578522/1500x500"
+                  src="../../img/1500x500.jpeg"
                   className="card-img-top h-75"
                   alt="Campaign Image"
                 />
