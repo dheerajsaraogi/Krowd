@@ -50,8 +50,7 @@ class Navbar extends React.Component {
                 className="btn btn-outline-warning ml-2 my-sm-0"
                 type="submit"
               >
-                {/* {this.props.accountAddress.slice(0, 5) + '...'} */}
-                {this.props.accountAddress}
+                {this.props.accountAddress.slice(0, 5) + '...'}
               </button>
             )}
           </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Web3 from 'web3'
 import TruffleContract from 'truffle-contract'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -11,6 +10,7 @@ import Modal from '../components/Modal'
 import SingleCampaign from '../components/SingleCampaign'
 import Footer from '../components/footer'
 import Banner from '../components/banner'
+import Inbox from '../components/Inbox'
 
 class Home extends React.Component {
   constructor(props) {
@@ -135,6 +135,7 @@ class Home extends React.Component {
           </div>
          
         </div>
+        <Inbox />
 
         <Footer/>
         

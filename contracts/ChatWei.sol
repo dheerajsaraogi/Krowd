@@ -43,11 +43,10 @@ contract ChatWei {
   }
 
   function registerUser() public {
-    if(!hasRegistered[msg.sender]) {
-      userInboxes[msg.sender] = newInbox;
-      hasRegistered[msg.sender] = true;
-      contractProperties.registeredUsersAddress.push(msg.sender);
-    }
+    require(!hasRegistered[msg.sender]);
+    userInboxes[msg.sender] = newInbox;
+    hasRegistered[msg.sender] = true;
+    contractProperties.registeredUsersAddress.push(msg.sender);
   }
 
   function getContractProperties() public view returns (address, address[] memory) {
