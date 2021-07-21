@@ -1,6 +1,6 @@
-## CrowdSF
+## Krowd
 
-Crowdfunding is a platform offering entrepreneurs and project owners the possibility to raise money from an undefined group of online users while Crowdsourcing involves obtaining work, human intelligence or opinions from a large group of people which submit their data via the Internet. In this project, we conceptualize a Blockchain-based system “CrowdSF” for crowdsourcing and crowdfunding. In which we will try to integrate both platforms together where idea creator can recruit the worker to execute the project or seek masses for funding their project at one single platform.
+Crowdfunding is a platform offering entrepreneurs and project owners the possibility to raise money from an undefined group of online users while Crowdsourcing involves obtaining work, human intelligence or opinions from a large group of people which submit their data via the Internet. In this project, we conceptualize a Blockchain-based system “Krowd” for crowdsourcing and crowdfunding. In which we will try to integrate both platforms together where idea creator can recruit the worker to execute the project or seek masses for funding their project at one single platform.
 
 ### :dart: Prerequisites
 
@@ -16,7 +16,7 @@ Crowdfunding is a platform offering entrepreneurs and project owners the possibi
 
 ### :arrow_down: Installing
 
-- `git clone https://github.com/gnasamx/CrowdSF.git`
+- `git clone https://github.com/dheerajsaraogi/Krowd.git`
 - `npm install`
 
 ### :rocket: Running
