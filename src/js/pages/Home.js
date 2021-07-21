@@ -9,6 +9,8 @@ import CampaignFactoryTitle from '../components/CampaignFactoryTitle'
 import Campaign from '../../../build/contracts/Campaign.json'
 import Modal from '../components/Modal'
 import SingleCampaign from '../components/SingleCampaign'
+import Footer from '../components/footer'
+import Banner from '../components/banner'
 
 class Home extends React.Component {
   constructor(props) {
@@ -115,6 +117,9 @@ class Home extends React.Component {
       <React.Fragment>
         <Navbar accountAddress={this.state.account} />
         <Modal createNewCampaignHandler={this.createNewCampaignHandler} />
+        
+        <Banner Heading ="Crowd Funding"/>
+
         <div className="container" style={{marginTop: '5rem'}}>
           <div className="row">
             <div className="col">
@@ -124,9 +129,15 @@ class Home extends React.Component {
               <SingleCampaign
                 campaignsFromBlockchain={this.state.campaignsFromBlockchain}
               />
+
+              {/* <About/> */}
             </div>
           </div>
+         
         </div>
+
+        <Footer/>
+        
       </React.Fragment>
     )
   }

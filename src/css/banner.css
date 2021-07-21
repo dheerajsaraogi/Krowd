@@ -1,0 +1,7 @@
+#heading{
+    font-weight: bold;
+    color: whitesmoke;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px #161515, 0 0 5px #0e0e11;
+    font-size: 70px;
+}

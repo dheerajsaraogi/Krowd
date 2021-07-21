@@ -8,6 +8,7 @@ import ContributionForm from '../components/ContributionForm'
 import CreateRequestForm from '../components/CreateRequestForm'
 import AllRequestCard from '../components/AllRequestsCard'
 import ContributersList from '../components/ContributersList'
+import Footer from '../components/footer'
 
 class CampaignDetails extends React.Component {
   constructor(props) {
@@ -63,8 +64,9 @@ class CampaignDetails extends React.Component {
             this.setState({ cDesc: summary[1] })
             this.setState({ minContribution: summary[2].toString() })
             this.setState({ contributedAmount: summary[3].toString() })
-            // this.setState({ backersCount: summary[5].toString() })
             this.setState({ creator: summary[6].toString() })
+            // this.setState({ backersCount: summary[5].toString() })
+            
           })
           // Get total requests count
           this.state.campaignInstance.getRequestsCount().then(rc => {
@@ -100,6 +102,7 @@ class CampaignDetails extends React.Component {
       console.log(`Campaign details are not fetched yet`)
     }
   }
+  
 
   handleContribution = e => {
     e.preventDefault()
@@ -236,7 +239,7 @@ class CampaignDetails extends React.Component {
                   <h5 className="card-title">{this.state.cTitle}</h5>
                   <p className="card-text">{this.state.cDesc}</p>
                   <p className="card-text">
-                    <small className="text-muted">Last updated 1 min ago</small>
+                    {/* <small className="text-muted">Last updated 1 min ago</small> */}
                   </p>
                 </div>
               </div>
@@ -321,6 +324,7 @@ class CampaignDetails extends React.Component {
             </div>
           </div>
         </div>
+        <Footer/>
       </React.Fragment>
     )
   }
