@@ -41,7 +41,7 @@ const CreateRequestForm = props => {
       </div>
       <div className="form-group row">
         <label htmlFor="inputPassword4" className="col-sm-2 col-form-label">
-          Worker Address
+          Recipient Address
         </label>
         <div className="col-sm-10">
           <input

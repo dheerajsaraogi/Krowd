@@ -10,7 +10,7 @@ const footer = () => {
     //       <h3 className="text-white">About Us</h3>
     //   </div>
 
-    <div className="container-fluid px-0 ">
+    <div className="container-fluid px-0 mt-5">
           <div style={{height: 150+"px", overflow: "hidden"}} >
             <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: 100+"%", width: 100 + "%"}}>
                 <path d="M-4.22,83.38 C166.76,-100.16 314.61,269.89 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style={{stroke: "none", fill: "#25262f"}}></path>

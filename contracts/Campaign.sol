@@ -61,14 +61,13 @@ contract Campaign {
         request.approvalCount++;
     }
 
-    function finalizeRequest(uint index)  public restricted {
+    function finalizeRequest(uint index)  public restricted payable{
         Request storage request = requests[index];
 
         require(request.approvalCount > (approversCount / 2));
         require(!request.complete);
 
         request.recipient.transfer(request.value);
-        (request.value);
         request.complete = true;
     }
 

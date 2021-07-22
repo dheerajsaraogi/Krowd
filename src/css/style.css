@@ -1976,5 +1976,40 @@ textarea.form-control {
 }
 
 .modal-dialog {
-  margin: 5% 25% !important;
+  margin: 2% 25% !important;
+}
+
+/* Table */
+tr {
+  cursor: pointer;
+}
+
+th, td {
+  border: 1px solid Black;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  user-select: none;
+}
+
+tr:nth-child(even) {
+  background-color: White;
+}
+
+th.sorted.ascending:after {
+  content: "  \2191";
+}
+
+th.sorted.descending:after {
+  content: " \2193";
+}
+
+tr:hover {
+  background-color: transparent;
+  color: #000000;
+}
+
+tr:hover {
+  background-color: #EEE;
+  color: #000000;
 }

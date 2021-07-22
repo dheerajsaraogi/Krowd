@@ -10,7 +10,7 @@ const banner = ({ Heading }) => {
             <div className="container">
                 <div className="row align-items-center justify-content-center text-center">
                 <div className="col-md-9">
-                    <h2 className="heading mb-5">Crowd-funding Platform Using Smart Contracts</h2>
+                    <h2 className="heading mb-5">{Heading}</h2>
                 </div>
                 </div>
             </div>

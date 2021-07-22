@@ -61,9 +61,11 @@ class Navbar extends React.Component {
             </button>
             <button className="btn btn-outline-success ml-2 my-sm-0" onClick={() => this.toggle()}>Inbox</button>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className="inboxModal" >
-            <ModalHeader toggle={this.toggle}></ModalHeader>
+            <ModalHeader toggle={this.toggle}>INBOX</ModalHeader>
             <ModalBody>
-              <Inbox />
+              <Inbox 
+                toggle={this.toggle}
+              />
             </ModalBody>
           </Modal>
           </div>

@@ -118,7 +118,7 @@ class Home extends React.Component {
         <Navbar accountAddress={this.state.account} />
         <Modal createNewCampaignHandler={this.createNewCampaignHandler} />
         
-        <Banner Heading ="Crowd Funding"/>
+        <Banner Heading ="Crowd-funding Platform Using Smart Contracts"/>
 
         <div className="container" style={{marginTop: '5rem'}}>
           <div className="row">

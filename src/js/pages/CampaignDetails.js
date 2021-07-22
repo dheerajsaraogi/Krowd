@@ -63,9 +63,10 @@ class CampaignDetails extends React.Component {
             this.setState({ cTitle: summary[0] })
             this.setState({ cDesc: summary[1] })
             this.setState({ minContribution: summary[2].toString() })
-            this.setState({ contributedAmount: summary[3].toString() })
+            //console.log("Contract Balance : " + summary[3]/1000000000000000000 + "    " + typeof(summary[3]/1000000000000000000))
+            this.setState({ contributedAmount: summary[3].toString()})
             this.setState({ creator: summary[6].toString() })
-            // this.setState({ backersCount: summary[5].toString() })
+            this.setState({ backersCount: summary[5].toString() })
             
           })
           // Get total requests count
@@ -175,6 +176,7 @@ class CampaignDetails extends React.Component {
       this.state.campaignInstance
         .finalizeRequest(index, {
           from: web3.eth.accounts.toString(),
+          //value: web3.toWei(this.state.requestEthAmt , 'ether') ,
           gas: 4712388,
           gasPrice: 100000000000
         })
@@ -193,7 +195,7 @@ class CampaignDetails extends React.Component {
       let { requestPurpose, requestWorkerAdd, requestEthAmt } = this.state
       if (requestPurpose && requestWorkerAdd && requestEthAmt > 0) {
         this.state.campaignInstance
-          .createRequest(requestPurpose, requestEthAmt, requestWorkerAdd, {
+          .createRequest(requestPurpose, web3.toWei(requestEthAmt , 'ether'), requestWorkerAdd, {
             from: web3.eth.accounts.toString(),
             gas: 4712388,
             gasPrice: 100000000000

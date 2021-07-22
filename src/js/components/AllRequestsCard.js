@@ -27,9 +27,14 @@ class AllRequestCard extends React.Component {
           <tbody>
             {this.props.totalRequestArr.map((outer, index) => (
               <tr className={outer[3] ? 'table-success': ''} key={index}>
-                {outer.map((inner, index) => (
-                  <td key={index}>{inner.toString()}</td>
-                ))}
+                {outer.map((inner, index) => {
+                  if(index == 1) {
+                    return (
+                      <td key={index}>{(inner/1000000000000000000).toString()}</td>    
+                    )
+                  }
+                  return (<td key={index}>{inner.toString()}</td>)
+                })}
                 {this.props.allContributersArr.includes(
                   web3.eth.accounts.toString()
                 ) && (

@@ -22,6 +22,7 @@ class Inbox extends React.Component {
       this.web3Provider = new Web3.providers.HttpProvider(
         'http://127.0.0.1:8545'
       )
+      this.props.toggle();
     }
 
     this.web3 = new Web3(this.web3Provider)
@@ -35,6 +36,7 @@ class Inbox extends React.Component {
       if (!account) {
         this.setStatus("Please login to MetaMask");
         alert("Could not fetch your account. Make sure you are logged in to MetaMask, then refresh the page.");
+        this.props.toggle();
         return;
       }
       this.getContractProperties()
@@ -86,12 +88,14 @@ class Inbox extends React.Component {
         if (confirm("New user: we need to setup an inbox for you on the Ethereum blockchain. For this you will need to submit a transaction in MetaMask. You will only need to do this once.")) {
           this.registerUser();
         } else {
+          this.props.toggle();
           return null;
         }
       }
     }).catch((e) => {
       console.log(e);
       this.setStatus("Error checking user registration; see log");
+      this.props.toggle();
     });
     return this.getMyInboxSize();
   }
@@ -113,6 +117,7 @@ class Inbox extends React.Component {
     }).catch((e) => {
       console.log(e);
       this.setStatus("Error logging in; see log");
+      this.props.toggle();
     });
     return null;
   }
@@ -394,13 +399,14 @@ class Inbox extends React.Component {
         "textAlign": "center",
         "backgroundColor": "#EEE",
         "outline": "none",
-        "cursor": "default",
+        "cursor": "pointer",
         "WebkitTouchCallout": "none",
         "WebkitUserSelect": "none",
         "KhtmlUserSelect": "none",
         "MozUserSelect": "none",
         "MsUserSelect": "none",
-        "userSelect": "none"
+        "userSelect": "none",
+        "float": "right"
       },
       "textarea_type_myInputTextArea": {
         "border": "1.0px solid #000",
@@ -412,7 +418,8 @@ class Inbox extends React.Component {
         "userSelect": "none",
         "outline": "none",
         "overflow": "hidden",
-        "color": "#666"
+        "color": "#666",
+        "width": "100%"
       },
       "textarea_type_messageTextArea": {
         "border": "1.0px solid #000",
@@ -427,13 +434,15 @@ class Inbox extends React.Component {
         "display": "block",
         "width": "96%",
         "height": "26px",
-        "paddingLeft": "10px"
+        "paddingLeft": "10px",
+        "width": "95%"
       },
       "table": {
         "borderCollapse": "collapse",
         "maxWidth": "100%",
         "width": "100%",
-        "border": "1px solid Black"
+        "border": "1px solid Black",
+        "marginTop": "-5px"
       },
       "th": {
         "border": "1px solid Black",
@@ -470,38 +479,35 @@ class Inbox extends React.Component {
     return (
       <React.Fragment>
         <div style={styles.inbox}>
-        <h1>Inbox</h1><br />
-        <hr style={{border: '1px solid black', marginTop: '-5px'}} />
-        <br />
-        <label>Your Ethereum address:</label> <br />
-        <a target="_blank" type="addressLinks" id="myAddress" spellCheck="false">Could not load</a>
+        <label style={styles.label}>Your Ethereum address:</label> <br />
+        <a style={styles.a_type_addressLinks} target="_blank" type="addressLinks" id="myAddress" spellCheck="false">Could not load</a>
         <br /><br />
-        <label>User directory:</label> <br />
-        <input type="myDefaultButton" defaultValue="Copy" onClick={() => this.copyAddressToSend()} style={{float: 'right'}} />
+        <label style={styles.label}>User directory:</label> <br />
+        <input type="myDefaultButton" defaultValue="Copy" onClick={() => this.copyAddressToSend()} style={styles.input_type_myDefaultButton} />
         <div style={{overflow: 'hidden', paddingRight: '10px'}}>
-          <select type="registeredUsersAddressMenu" id="registeredUsersAddressMenu" />​
+          <select style={styles.select_type_registeredUsersAddressMenu} type="registeredUsersAddressMenu" id="registeredUsersAddressMenu" />​
         </div>
         <br />
-        <label>Send to:</label> <br />
-        <textarea type="myInputTextArea" id="receiver" spellCheck="false" style={{width: '100%'}} maxLength={42} rows={1} defaultValue={""} />
+        <label style={styles.label}>Send to:</label> <br />
+        <textarea type="myInputTextArea" id="receiver" spellCheck="false" style={styles.textarea_type_myInputTextArea} maxLength={42} rows={1} defaultValue={""} />
         <br /><br />
-        <br /><label>Message:</label> <br />
-        <input type="myDefaultButton" id="sendMessageButton" defaultValue="Send" onClick={() => this.sendMessage()} style={{float: 'right'}} />
+        <br /><label style={styles.label}>Message:</label> <br />
+        <input type="myDefaultButton" id="sendMessageButton" defaultValue="Send" onClick={() => this.sendMessage()} style={styles.input_type_myDefaultButton} />
         <div style={{overflow: 'hidden', paddingRight: '10px'}}>
-          <textarea type="messageTextArea" id="message" style={{width: '95%'}} maxLength={30} rows={1} defaultValue={""} />​
+          <textarea type="messageTextArea" id="message" style={styles.textarea_type_messageTextArea} maxLength={30} rows={1} defaultValue={""} />​
         </div>
         <div id="receivedTable" style={{display: 'none'}}>
-          <br /><label>Received:</label> <br />
-          <input type="myDefaultButton" id="replyButton" defaultValue="Reply" onClick={() => this.replyToMessage()} style={{float: 'right'}} />
+          <br /><label style={styles.label}>Received:</label> <br />
+          <input type="myDefaultButton" id="replyButton" defaultValue="Reply" onClick={() => this.replyToMessage()} style={styles.input_type_myDefaultButton} />
           <div style={{overflow: 'hidden', paddingRight: '10px'}}>
-            <textarea type="messageTextArea" id="reply" defaultValue={""} />​
+            <textarea type="messageTextArea" id="reply" defaultValue={""} style={styles.textarea_type_messageTextArea} />​
           </div>
           <br />
-          <table id="mytable" style={{marginTop: '-5px'}}>
+          <table id="mytable" style={styles.table}>
             <thead>
               <tr>
-                <th>Date</th>
-                <th>From</th>
+                <th style={styles.th}>Date</th>
+                <th style={styles.th}>From</th>
                 <th style={{display: 'none'}}>Content</th>
               </tr>
             </thead>
@@ -510,7 +516,7 @@ class Inbox extends React.Component {
           </table>
         </div>
         <br />
-        <label>Status:</label> <br />
+        <label style={styles.label}>Status:</label> <br />
         <span id="status">Inactive</span>
         </div>
       </React.Fragment>
